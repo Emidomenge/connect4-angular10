@@ -1,0 +1,11 @@
+<mat-toolbar>
+    <span i18n="@@app.name">Connect 4 with Angular</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button [matMenuTriggerFor]="menu" [matTooltip]="changeThemeLabel">
+        <mat-icon>format_color_fill</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="changeTheme('light-theme')" i18n="@@app.lightMode">Light mode</button>
+        <button mat-menu-item (click)="changeTheme('dark-theme')" i18n="@@app.darkMode">Dark mode</button>
+    </mat-menu>
+</mat-toolbar>

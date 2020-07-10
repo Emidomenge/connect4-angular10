@@ -6,6 +6,22 @@
         <source>test</source>
         <target>Ceci est un test</target>
       </trans-unit>
+      <trans-unit id="app.name">
+        <source>Connect 4 with Angular</source>
+        <target>Puissance 4 avec Angular</target>
+      </trans-unit>
+      <trans-unit id="app.lightMode">
+        <source>Light mode</source>
+        <target>Mode jour</target>
+      </trans-unit>
+      <trans-unit id="app.darkMode">
+        <source>Dark mode</source>
+        <target>Mode nuit</target>
+      </trans-unit>
+      <trans-unit id="toolbar.changeTheme">
+        <source>Change theme</source>
+        <target>Changer de mode</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
