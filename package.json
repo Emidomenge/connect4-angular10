@@ -8,6 +8,7 @@
         "start:en": "ng serve --configuration=en",
         "build": "ng build",
         "build:prod": "ng build --prod --localize",
+        "release": "firebase deploy",
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e"

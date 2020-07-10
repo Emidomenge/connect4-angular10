@@ -1,0 +1,7 @@
+{
+    "hosting": {
+        "public": "dist/connect4-angular",
+        "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+        "rewrites": [{ "source": "**", "destination": "/en/index.html" }]
+    }
+}
