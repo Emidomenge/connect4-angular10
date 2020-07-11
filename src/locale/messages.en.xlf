@@ -22,6 +22,10 @@
         <source>Change theme</source>
         <target>Change theme</target>
       </trans-unit>
+      <trans-unit id="toolbar.viewGithub">
+        <source>Github</source>
+        <target>Github</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

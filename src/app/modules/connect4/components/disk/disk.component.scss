@@ -1,0 +1,15 @@
+@mixin disk-theme($theme) {
+    $emptyItemColor: #ffff;
+    $player1DiskColor: #f9e79f;
+    $player2DiskColor: lightcoral;
+
+    .disk__item {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-color: $emptyItemColor;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

@@ -6,14 +6,18 @@
 ************************/
 
 // Custom themable components
+@import './app/modules/connect4/components/board/board.component';
+@import './app/modules/connect4/components/disk/disk.component';
 @mixin custom-components-theme($theme) {
-    //
+    @include board-theme($theme);
+    @include disk-theme($theme);
 }
 
 // Light theme
 $light-primary: mat-palette($mat-indigo);
-$light-accent: mat-palette($mat-pink, A200, A100, A400);
-$light-theme: mat-light-theme($light-primary, $light-accent);
+$light-accent: mat-palette($mat-blue, A200, A100, A400);
+$light-warn: mat-palette($mat-orange);
+$light-theme: mat-light-theme($light-primary, $light-accent, $light-warn);
 
 .light-theme {
     @include angular-material-theme($light-theme);
@@ -22,7 +26,7 @@ $light-theme: mat-light-theme($light-primary, $light-accent);
 
 // Dark theme
 $dark-primary: mat-palette($mat-grey);
-$dark-accent: mat-palette($mat-blue-grey, A200, A100, A400);
+$dark-accent: mat-palette($mat-deep-purple, A200, A100, A400);
 $dark-warn: mat-palette($mat-deep-orange);
 $dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
 
