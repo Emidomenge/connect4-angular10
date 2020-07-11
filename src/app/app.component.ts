@@ -1,4 +1,5 @@
-import { SetDarkMode } from './../ngxs/actions/appSettings.actions';
+import { StartNewGame } from './ngxs/actions/connect4.actions';
+import { SetDarkMode } from './ngxs/actions/appSettings.actions';
 import { ThemingService } from './shared/services/theming/theming.service';
 import { Component, HostBinding, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
@@ -20,9 +21,14 @@ export class AppComponent implements OnInit, OnDestroy {
             this.cssClass = theme;
             this.store.dispatch(new SetDarkMode(theme === 'dark-theme'));
         });
+        this.startNewGame();
     }
 
     ngOnDestroy(): void {
         this.themingSubscription.unsubscribe();
+    }
+
+    public startNewGame(): void {
+        this.store.dispatch(new StartNewGame());
     }
 }

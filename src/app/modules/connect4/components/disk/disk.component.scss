@@ -16,5 +16,13 @@
         display: flex;
         align-items: center;
         justify-content: center;
+
+        &.board__disk-item--filled-by-p1 {
+            background-color: $player1DiskColor;
+        }
+
+        &.board__disk-item--filled-by-p2 {
+            background-color: $player2DiskColor;
+        }
     }
 }

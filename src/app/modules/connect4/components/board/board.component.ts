@@ -1,7 +1,11 @@
+import { AppState } from './../../../../ngxs/index';
+import { Connect4Service } from './../../connect4.service';
+import { PlayerIndex } from './../../../../ngxs/state/connect4.state';
 import { breakpoints } from './../../../../breakpoints/breakpoints';
 import { connect4 } from './../../../../settings/index';
 import { Component, OnInit } from '@angular/core';
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
+import { Store } from '@ngxs/store';
 
 @Component({
     selector: 'app-board',
@@ -13,14 +17,19 @@ export class BoardComponent implements OnInit {
     nbRow = connect4.nbRows;
     rowHeight: string;
     i18nTest: string;
-    constructor(private breakpointObserver: BreakpointObserver) {}
+    constructor(
+        private breakpointObserver: BreakpointObserver,
+        private store: Store,
+        private connect4Service: Connect4Service
+    ) {}
 
     ngOnInit(): void {
-        this.rowHeight = '80vh';
+        this.rowHeight = connect4.boardHeight.lg;
         this.detectBreakpoint();
     }
 
     private detectBreakpoint(): void {
+        const { boardHeight } = connect4;
         const applyRowHeight = (rowHeightValue: string, result: BreakpointState) => {
             if (result.matches) {
                 this.rowHeight = rowHeightValue;
@@ -31,18 +40,25 @@ export class BoardComponent implements OnInit {
             .subscribe((result) => applyRowHeight('40vh', result));
         this.breakpointObserver
             .observe([`(max-width: ${breakpoints.screen_md_min}px)`])
-            .subscribe((result) => applyRowHeight('45vh', result));
+            .subscribe((result) => applyRowHeight(boardHeight.xs, result));
         this.breakpointObserver
             .observe([`(max-width: ${breakpoints.screen_lg_min}px)`])
-            .subscribe((result) => applyRowHeight('64vh', result));
+            .subscribe((result) => applyRowHeight(boardHeight.md, result));
         this.breakpointObserver
             .observe([`(min-width: ${breakpoints.screen_xs_min}px)`])
-            .subscribe((result) => applyRowHeight('45vh', result));
+            .subscribe((result) => applyRowHeight(boardHeight.xs, result));
         this.breakpointObserver
             .observe([`(min-width: ${breakpoints.screen_md_min}px)`])
-            .subscribe((result) => applyRowHeight('64vh', result));
+            .subscribe((result) => applyRowHeight(boardHeight.md, result));
         this.breakpointObserver
             .observe([`(min-width: ${breakpoints.screen_lg_min}px)`])
-            .subscribe((result) => applyRowHeight('80vh', result));
+            .subscribe((result) => applyRowHeight(boardHeight.lg, result));
+    }
+
+    public onClickColumn(columnIndex: number): void {
+        const playerIndex = this.store.selectSnapshot<PlayerIndex | null>(
+            (state: AppState) => state.connect4.playerPlaying
+        );
+        this.connect4Service.addDiskInColumn(columnIndex, playerIndex);
     }
 }

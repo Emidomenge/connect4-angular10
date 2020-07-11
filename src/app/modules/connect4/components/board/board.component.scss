@@ -8,8 +8,7 @@
 
     .board__container {
         width: 95%;
-        margin-left: auto;
-        margin-right: auto;
+        margin: 8px auto;
         padding: 0 10px;
         padding-bottom: 0 !important;
         border-radius: 30px;
@@ -22,6 +21,7 @@
         }
         @include lg {
             width: 820px;
+            min-height: 75vh;
         }
     }
 
