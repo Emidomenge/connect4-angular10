@@ -26,6 +26,14 @@
         <source>Change theme</source>
         <target>Change theme</target>
       </trans-unit>
+      <trans-unit id="toolbar.muteSound">
+        <source>Mute sound</source>
+        <target>Mute sound</target>
+      </trans-unit>
+      <trans-unit id="toolbar.unmuteSound">
+        <source>Unmute sound</source>
+        <target>Unmute sound</target>
+      </trans-unit>
       <trans-unit id="toolbar.viewGithub">
         <source>Github</source>
         <target>Github</target>

@@ -1,15 +1,31 @@
 <mat-toolbar color="primary">
     <mat-icon class="toolbar__menu-icon" (click)="toggleSidenav()">menu</mat-icon>
-    <span i18n="@@app.name">Connect 4 with Angular</span>
+    <span i18n="@@app.name" *ngIf="breakpoint !== 'xs'">Connect 4 with Angular</span>
     <span class="toolbar__spacer"></span>
-    <button mat-icon-button [matMenuTriggerFor]="menu" [matTooltip]="changeThemeLabel">
+    <button
+        mat-icon-button
+        [matTooltip]="label.muteSound"
+        (click)="muteSound(true)"
+        *ngIf="breakpoint !== 'xs' && (isSoundMuted$ | async) === false"
+    >
+        <mat-icon>volume_up</mat-icon>
+    </button>
+    <button
+        mat-icon-button
+        [matTooltip]="label.unmuteSound"
+        (click)="muteSound(false)"
+        *ngIf="breakpoint !== 'xs' && (isSoundMuted$ | async) === true"
+    >
+        <mat-icon>volume_off</mat-icon>
+    </button>
+    <button mat-icon-button [matMenuTriggerFor]="menu" [matTooltip]="label.changeTheme" *ngIf="breakpoint !== 'xs'">
         <mat-icon>format_color_fill</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
         <button mat-menu-item (click)="changeTheme('light-theme')" i18n="@@app.lightMode">Light mode</button>
         <button mat-menu-item (click)="changeTheme('dark-theme')" i18n="@@app.darkMode">Dark mode</button>
     </mat-menu>
-    <a mat-button href="https://github.com/Emidomenge/connect4-angular10">
+    <a mat-button href="https://github.com/Emidomenge/connect4-angular10" *ngIf="breakpoint !== 'xs'">
         <img class="toolbar__github-logo" src="assets/img/github-circle-white-transparent.svg" />
         <span i18n="@@toolbar.viewGithub">Github</span>
     </a>

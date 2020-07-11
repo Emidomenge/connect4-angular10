@@ -1,6 +1,12 @@
+import { AppState } from './../../../../ngxs/index';
+import { AppSettingsService } from './../../../../shared/services/appSettings/app-service.service';
+import { BreakpointService } from './../../../../shared/services/breakpoint/breakpoint.service';
 import { SidenavService } from './../../../../shared/services/sidenav/sidenav.service';
 import { ThemingService } from './../../../../shared/services/theming/theming.service';
 import { Component, OnInit } from '@angular/core';
+import { SupportedBreakpoints } from 'src/app/shared/services/breakpoint/breakpoint.service';
+import { Select } from '@ngxs/store';
+import { Observable } from 'rxjs';
 
 @Component({
     selector: 'app-toolbar',
@@ -9,18 +15,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToolbarComponent implements OnInit {
     themes: string[];
-    changeThemeLabel = $localize`:@@toolbar.changeTheme:Change theme`;
-    constructor(private theming: ThemingService, private sidenavService: SidenavService) {}
+    breakpoint: SupportedBreakpoints;
+    label = {
+        changeTheme: $localize`:@@toolbar.changeTheme:Change theme`,
+        muteSound: $localize`:@@toolbar.muteSound:Mute sound`,
+        unmuteSound: $localize`:@@toolbar.unmuteSound:Unmute sound`
+    };
+    @Select((state: AppState) => state.appSettings.soundMute) isSoundMuted$: Observable<boolean>;
+    constructor(
+        private theming: ThemingService,
+        private sidenavService: SidenavService,
+        private appSettingsService: AppSettingsService,
+        private breakpointService: BreakpointService
+    ) {}
 
     ngOnInit(): void {
         this.themes = this.theming.themes;
+        this.breakpointService.breakpointBS.subscribe((breakpoint) => {
+            this.breakpoint = breakpoint;
+        });
     }
 
-    changeTheme(theme: string): void {
+    public changeTheme(theme: string): void {
         this.theming.themeBS.next(theme);
     }
 
-    toggleSidenav(): void {
+    public muteSound(value: boolean): void {
+        this.appSettingsService.switchSoundToMute(value);
+    }
+
+    public toggleSidenav(): void {
         this.sidenavService.toggle();
     }
 }

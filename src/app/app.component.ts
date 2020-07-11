@@ -1,3 +1,4 @@
+import { AppSettingsService } from './shared/services/appSettings/app-service.service';
 import { AudioService } from './shared/audio/audio.service';
 import { SetGameOver } from './ngxs/actions/connect4.actions';
 import { Connect4Service } from './modules/connect4/connect4.service';
@@ -19,6 +20,7 @@ export class AppComponent implements OnInit, OnDestroy {
     constructor(
         private store: Store,
         private themingService: ThemingService,
+        private appSettingsService: AppSettingsService,
         private connect4Service: Connect4Service,
         private audioService: AudioService
     ) {}
@@ -27,7 +29,7 @@ export class AppComponent implements OnInit, OnDestroy {
     ngOnInit(): void {
         this.themingSubscription = this.themingService.themeBS.subscribe((theme: string) => {
             this.cssClass = theme;
-            this.store.dispatch(new SetDarkMode(theme === 'dark-theme'));
+            this.appSettingsService.setDarkmode(theme === 'dark-theme');
         });
         this.connect4Service.diskAddedSubject.subscribe(() => {
             const gameFinishInfo = this.connect4Service.checkGameFinished();

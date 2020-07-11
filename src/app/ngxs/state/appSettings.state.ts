@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Action, Selector, State, StateContext } from '@ngxs/store';
 
-import { SetDarkMode } from './../actions/appSettings.actions';
+import { SetDarkMode, SwitchSoundToMute } from './../actions/appSettings.actions';
 
 export interface AppSettingsModel {
     darkModeEnabled: boolean;
+    soundMute: boolean;
 }
 
 @State<AppSettingsModel>({
     name: 'appSettings',
     defaults: {
-        darkModeEnabled: false
+        darkModeEnabled: false,
+        soundMute: false
     }
 })
 @Injectable()
@@ -28,6 +30,15 @@ export class AppSettingsState {
         patchState({
             ...state,
             darkModeEnabled: payload.isEnabled
+        });
+    }
+
+    @Action(SwitchSoundToMute)
+    switchSoundToMute({ getState, patchState }: StateContext<AppSettingsModel>, payload: SwitchSoundToMute): void {
+        const state = getState();
+        patchState({
+            ...state,
+            soundMute: payload.value
         });
     }
 }
