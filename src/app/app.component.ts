@@ -1,3 +1,6 @@
+import { AudioService } from './shared/audio/audio.service';
+import { SetGameOver } from './ngxs/actions/connect4.actions';
+import { Connect4Service } from './modules/connect4/connect4.service';
 import { StartNewGame } from './ngxs/actions/connect4.actions';
 import { SetDarkMode } from './ngxs/actions/appSettings.actions';
 import { ThemingService } from './shared/services/theming/theming.service';
@@ -13,13 +16,28 @@ import { Store } from '@ngxs/store';
 export class AppComponent implements OnInit, OnDestroy {
     title = 'connect4-angular';
     themingSubscription: Subscription;
-    constructor(private themingService: ThemingService, private store: Store) {}
+    constructor(
+        private store: Store,
+        private themingService: ThemingService,
+        private connect4Service: Connect4Service,
+        private audioService: AudioService
+    ) {}
     @HostBinding('class') public cssClass: string;
 
     ngOnInit(): void {
         this.themingSubscription = this.themingService.themeBS.subscribe((theme: string) => {
             this.cssClass = theme;
             this.store.dispatch(new SetDarkMode(theme === 'dark-theme'));
+        });
+        this.connect4Service.diskAddedSubject.subscribe(() => {
+            const gameFinishInfo = this.connect4Service.checkGameFinished();
+            if (gameFinishInfo !== null) {
+                this.store.dispatch(new SetGameOver(gameFinishInfo.byPlayer, gameFinishInfo.winConditionResolved));
+
+                // play audio
+                const hasIdentifiedWinner = gameFinishInfo.byPlayer !== null;
+                this.audioService.playAudio(hasIdentifiedWinner ? 'victory' : 'noWinner');
+            }
         });
         this.startNewGame();
     }

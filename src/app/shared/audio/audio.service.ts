@@ -6,11 +6,14 @@ import { Injectable } from '@angular/core';
 export class AudioService {
     soundLibrary = {
         diskAdded: './../../../../../assets/audio/diskAdded.wav',
-        columnFull: './../../../../../assets/audio/columnFull.wav'
+        columnFull: './../../../../../assets/audio/error.wav',
+        error: './../../../../../assets/audio/error.wav',
+        victory: './../../../../../assets/audio/victory.wav',
+        noWinner: './../../../../../assets/audio/noWinner.wav'
     };
     constructor() {}
 
-    public playAudio(soundTitle: 'diskAdded' | 'columnFull'): void {
+    public playAudio(soundTitle: 'diskAdded' | 'columnFull' | 'noWinner' | 'victory' | 'error'): void {
         const audio = new Audio();
         audio.src = this.soundLibrary[soundTitle];
         audio.load();

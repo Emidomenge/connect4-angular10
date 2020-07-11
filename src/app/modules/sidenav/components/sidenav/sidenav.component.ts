@@ -14,4 +14,9 @@ export class SidenavComponent implements OnInit {
     ngOnInit(): void {
         this.sidenavService.setSidenav(this.sidenav);
     }
+
+    public onClickRestartButton(): true {
+        this.sidenavService.restartConnect4Game();
+        return true;
+    }
 }

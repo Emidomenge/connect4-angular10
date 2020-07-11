@@ -4,8 +4,9 @@
             <h2 i18n="@@app.shortName">C4 Angular</h2>
         </div>
         <div class="sidenav__body">
-            <button mat-button i18n="@@sidenav.restartBtnLabel">
-                Restart game
+            <button mat-button (click)="onClickRestartButton() && sidenav.toggle()">
+                <mat-icon>autorenew</mat-icon>
+                <span i18n="@@sidenav.restartBtnLabel">Restart game</span>
             </button>
         </div>
     </mat-sidenav>

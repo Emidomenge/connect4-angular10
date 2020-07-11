@@ -11,13 +11,17 @@ export type Connect4Board = (PlayerIndex | null)[];
 export type Connect4Status = {
     playerPlaying: PlayerIndex | null;
     winner: PlayerIndex | null;
+    winConditionResolved: number[] | null;
     gameOver: boolean;
 };
+
+export type GameOverInfo = { winConditionResolved: number[] | null; byPlayer: PlayerIndex | null };
 
 export interface Connect4Model {
     currentBoard: Connect4Board;
     playerPlaying: PlayerIndex | null;
     winner: PlayerIndex | null;
+    winConditionResolved: number[] | null;
     gameOver: boolean;
 }
 
@@ -25,6 +29,7 @@ const initialState: Connect4Model = {
     currentBoard: new Array(connect4.nbColumns * connect4.nbRows).fill(null),
     playerPlaying: null,
     winner: null,
+    winConditionResolved: null,
     gameOver: false
 };
 
@@ -43,10 +48,11 @@ export class Connect4State {
 
     @Selector()
     static getGameStatus(state: Connect4Model): Connect4Status {
-        const { playerPlaying, winner, gameOver } = state;
+        const { playerPlaying, winner, gameOver, winConditionResolved } = state;
         return {
             playerPlaying,
             winner,
+            winConditionResolved,
             gameOver
         };
     }
@@ -76,12 +82,12 @@ export class Connect4State {
     }
 
     @Action(SetGameOver)
-    setGameOver({ getState, patchState }: StateContext<Connect4Model>, action: PlayerIndex | null): void {
+    setGameOver({ getState, patchState }: StateContext<Connect4Model>, payload: GameOverInfo): void {
         const state = getState();
-
         patchState({
             ...state,
-            winner: action,
+            winner: payload.byPlayer,
+            winConditionResolved: payload.winConditionResolved,
             gameOver: true
         });
     }

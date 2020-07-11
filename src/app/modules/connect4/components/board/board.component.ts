@@ -1,3 +1,4 @@
+import { AudioService } from './../../../../shared/audio/audio.service';
 import { AppState } from './../../../../ngxs/index';
 import { Connect4Service } from './../../connect4.service';
 import { PlayerIndex } from './../../../../ngxs/state/connect4.state';
@@ -18,9 +19,10 @@ export class BoardComponent implements OnInit {
     rowHeight: string;
     i18nTest: string;
     constructor(
-        private breakpointObserver: BreakpointObserver,
         private store: Store,
-        private connect4Service: Connect4Service
+        private breakpointObserver: BreakpointObserver,
+        private connect4Service: Connect4Service,
+        private audioService: AudioService
     ) {}
 
     ngOnInit(): void {
@@ -56,9 +58,17 @@ export class BoardComponent implements OnInit {
     }
 
     public onClickColumn(columnIndex: number): void {
-        const playerIndex = this.store.selectSnapshot<PlayerIndex | null>(
-            (state: AppState) => state.connect4.playerPlaying
-        );
-        this.connect4Service.addDiskInColumn(columnIndex, playerIndex);
+        const { playerIndex, isGameOver } = this.store.selectSnapshot<{
+            playerIndex: PlayerIndex | null;
+            isGameOver: boolean;
+        }>((state: AppState) => ({
+            playerIndex: state.connect4.playerPlaying,
+            isGameOver: state.connect4.gameOver
+        }));
+        if (!isGameOver) {
+            this.connect4Service.addDiskInColumn(columnIndex, playerIndex);
+        } else {
+            this.audioService.playAudio('error');
+        }
     }
 }

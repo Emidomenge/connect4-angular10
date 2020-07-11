@@ -12,7 +12,7 @@ export class NextTurn {
 
 export class SetGameOver {
     static readonly type = '[Connect4] Game is over';
-    constructor(winnerPlayerIndex: PlayerIndex | null = null) {}
+    constructor(public winnerPlayerIndex: PlayerIndex, public winConditionResolved: number[]) {}
 }
 
 export class StartNewGame {
