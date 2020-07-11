@@ -1,4 +1,5 @@
 <mat-toolbar color="primary">
+    <mat-icon class="toolbar__menu-icon" (click)="toggleSidenav()">menu</mat-icon>
     <span i18n="@@app.name">Connect 4 with Angular</span>
     <span class="toolbar__spacer"></span>
     <button mat-icon-button [matMenuTriggerFor]="menu" [matTooltip]="changeThemeLabel">
@@ -8,8 +9,8 @@
         <button mat-menu-item (click)="changeTheme('light-theme')" i18n="@@app.lightMode">Light mode</button>
         <button mat-menu-item (click)="changeTheme('dark-theme')" i18n="@@app.darkMode">Dark mode</button>
     </mat-menu>
-    <a mat-button href="https://github.com/Emidomenge/connect4-angular10" i18n="@@toolbar.viewGithub">
+    <a mat-button href="https://github.com/Emidomenge/connect4-angular10">
         <img class="toolbar__github-logo" src="assets/img/github-circle-white-transparent.svg" />
-        Github
+        <span i18n="@@toolbar.viewGithub">Github</span>
     </a>
 </mat-toolbar>

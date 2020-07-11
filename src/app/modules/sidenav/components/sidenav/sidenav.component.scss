@@ -1,0 +1,28 @@
+@mixin sidenav-theme($theme) {
+    $primary: map-get($theme, primary);
+    $accent: map-get($theme, accent);
+    $warn: map-get($theme, warn);
+    $background: map-get($theme, background);
+    $foreground: map-get($theme, foreground);
+
+    mat-sidenav-container {
+        height: 100vh;
+    }
+
+    .sidenav__header {
+        background: mat-color($primary, darker);
+        padding: 16px;
+        & h2 {
+            margin: 0;
+        }
+    }
+
+    .sidenav__body {
+        display: flex;
+        flex-direction: column;
+        & button {
+            padding-top: 16px;
+            padding-bottom: 16px;
+        }
+    }
+}

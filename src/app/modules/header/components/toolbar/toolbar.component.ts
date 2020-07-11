@@ -1,3 +1,4 @@
+import { SidenavService } from './../../../../shared/services/sidenav/sidenav.service';
 import { ThemingService } from './../../../../shared/services/theming/theming.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -9,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class ToolbarComponent implements OnInit {
     themes: string[];
     changeThemeLabel = $localize`:@@toolbar.changeTheme:Change theme`;
-    constructor(private theming: ThemingService) {}
+    constructor(private theming: ThemingService, private sidenavService: SidenavService) {}
 
     ngOnInit(): void {
         this.themes = this.theming.themes;
@@ -17,5 +18,9 @@ export class ToolbarComponent implements OnInit {
 
     changeTheme(theme: string): void {
         this.theming.themeBS.next(theme);
+    }
+
+    toggleSidenav() {
+        this.sidenavService.toggle();
     }
 }

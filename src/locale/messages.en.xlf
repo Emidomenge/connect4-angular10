@@ -10,6 +10,10 @@
         <source>Connect 4 with Angular</source>
         <target>Connect 4 with Angular</target>
       </trans-unit>
+      <trans-unit id="app.shortName">
+        <source>C4 Angular</source>
+        <target>C4 Angular</target>
+      </trans-unit>
       <trans-unit id="app.lightMode">
         <source>Light mode</source>
         <target>Light mode</target>
@@ -25,6 +29,10 @@
       <trans-unit id="toolbar.viewGithub">
         <source>Github</source>
         <target>Github</target>
+      </trans-unit>
+      <trans-unit id="sidenav.restartBtnLabel">
+        <source>Restart game</source>
+        <target>Restart the game</target>
       </trans-unit>
     </body>
   </file>

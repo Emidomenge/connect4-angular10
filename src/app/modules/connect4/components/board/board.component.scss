@@ -13,6 +13,7 @@
         margin-top: 24px;
         padding: 0 10px;
         padding-bottom: 0 !important;
+        border-radius: 30px;
         background-color: mat-color($primary, darker);
         @include xs {
             width: 420px;
@@ -28,6 +29,7 @@
     .board__column {
         width: 100%;
         background-color: mat-color($primary, darker);
+        border-radius: 20px;
 
         &:hover {
             background-color: mat-color($accent, lighter, 0.4);
