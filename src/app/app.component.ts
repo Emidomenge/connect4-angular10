@@ -29,7 +29,7 @@ export class AppComponent implements OnInit, OnDestroy {
     ngOnInit(): void {
         this.themingSubscription = this.themingService.themeBS.subscribe((theme: string) => {
             this.cssClass = theme;
-            this.appSettingsService.setDarkmode(theme === 'dark-theme');
+            this.appSettingsService.setDarkMode(theme === 'dark-theme');
         });
         this.connect4Service.diskAddedSubject.subscribe(() => {
             const gameFinishInfo = this.connect4Service.checkGameFinished();

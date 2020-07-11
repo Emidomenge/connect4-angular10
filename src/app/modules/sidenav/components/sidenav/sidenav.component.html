@@ -3,12 +3,46 @@
         <div class="sidenav__header">
             <h2 i18n="@@app.shortName">C4 Angular</h2>
         </div>
-        <div class="sidenav__body">
-            <button mat-button (click)="onClickRestartButton() && sidenav.toggle()">
+        <mat-nav-list class="sidenav__body">
+            <a mat-list-item (click)="onClickRestartButton() && sidenav.toggle()">
                 <mat-icon>autorenew</mat-icon>
                 <span i18n="@@sidenav.restartBtnLabel">Restart game</span>
-            </button>
-        </div>
+            </a>
+            <a mat-list-item (click)="toggleSoundMenu()">
+                <mat-icon mat-list-icon>volume_up</mat-icon><span i18n="@@sidenav.Sound">Sound</span>
+                <mat-icon *ngIf="!showSoundMenu">chevron_right</mat-icon>
+                <mat-icon *ngIf="showSoundMenu">expand_more</mat-icon>
+            </a>
+            <mat-nav-list class="sidenav-submenu" *ngIf="showSoundMenu">
+                <a mat-list-item class="sidenav__list__item" (click)="setSoundMuteTo(true) && sidenav.toggle()">
+                    <span i18n="@@sidenav.Mute">Mute</span
+                    ><mat-icon *ngIf="(isSoundMuted$ | async) === true">done</mat-icon>
+                </a>
+                <a mat-list-item class="sidenav__list__item" (click)="setSoundMuteTo(false) && sidenav.toggle()">
+                    <span i18n="@@sidenav.Unmute">Unmute</span
+                    ><mat-icon *ngIf="(isSoundMuted$ | async) === false">done</mat-icon>
+                </a>
+            </mat-nav-list>
+            <a mat-list-item (click)="toggleThemeMenu()">
+                <mat-icon mat-list-icon>format_color_fill</mat-icon><span i18n="@@sidenav.Themes">Themes</span>
+                <mat-icon *ngIf="!showThemeMenu">chevron_right</mat-icon>
+                <mat-icon *ngIf="showThemeMenu">expand_more</mat-icon>
+            </a>
+            <mat-nav-list class="sidenav-submenu" *ngIf="showThemeMenu">
+                <a mat-list-item class="sidenav__list__item" (click)="setDarkModeTo(true) && sidenav.toggle()">
+                    <span i18n="@@sidenav.DarkMode">Dark mode</span
+                    ><mat-icon *ngIf="(isDarkMode$ | async) === true">done</mat-icon>
+                </a>
+                <a mat-list-item class="sidenav__list__item" (click)="setDarkModeTo(false) && sidenav.toggle()">
+                    <span i18n="@@sidenav.LightMode">Light mode</span
+                    ><mat-icon *ngIf="(isDarkMode$ | async) === false">done</mat-icon>
+                </a>
+            </mat-nav-list>
+            <a mat-list-item href="https://github.com/Emidomenge/connect4-angular10">
+                <mat-icon>login</mat-icon>
+                <span i18n="@@sidenav.viewGithub">View on Github</span>
+            </a>
+        </mat-nav-list>
     </mat-sidenav>
     <ng-content></ng-content>
 </mat-sidenav-container>

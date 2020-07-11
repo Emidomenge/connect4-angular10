@@ -8,7 +8,7 @@ import { Injectable } from '@angular/core';
 export class AppSettingsService {
     constructor(private store: Store) {}
 
-    public setDarkmode(value: boolean): void {
+    public setDarkMode(value: boolean): void {
         this.store.dispatch(new SetDarkMode(value));
     }
 

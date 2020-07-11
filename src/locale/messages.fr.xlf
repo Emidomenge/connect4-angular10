@@ -40,7 +40,35 @@
       </trans-unit>
       <trans-unit id="sidenav.restartBtnLabel">
         <source>Restart game</source>
-        <target>Recommencer la partie</target>
+        <target>Nouvelle partie</target>
+      </trans-unit>
+      <trans-unit id="sidenav.viewGithub">
+        <source>View on Github</source>
+        <target>Voir sur Github</target>
+      </trans-unit>
+      <trans-unit id="sidenav.LightMode">
+        <source>Light mode</source>
+        <target>Mode jour</target>
+      </trans-unit>
+      <trans-unit id="sidenav.DarkMode">
+        <source>Dark mode</source>
+        <target>Mode nuit</target>
+      </trans-unit>
+      <trans-unit id="sidenav.Themes">
+        <source>Themes</source>
+        <target>Thèmes</target>
+      </trans-unit>
+      <trans-unit id="sidenav.Sound">
+        <source>Sound</source>
+        <target>Volume</target>
+      </trans-unit>
+      <trans-unit id="sidenav.Mute">
+        <source>Mute</source>
+        <target>Actif</target>
+      </trans-unit>
+      <trans-unit id="sidenav.Unmute">
+        <source>Unmute</source>
+        <target>Inactif</target>
       </trans-unit>
       <trans-unit id="footer.madeBy">
         <source>Project made by</source>

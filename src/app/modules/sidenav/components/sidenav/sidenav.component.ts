@@ -1,6 +1,11 @@
+import { ThemingService } from './../../../../shared/services/theming/theming.service';
+import { AppSettingsService } from './../../../../shared/services/appSettings/app-service.service';
+import { Observable } from 'rxjs';
+import { AppState } from './../../../../ngxs/index';
 import { SidenavService } from './../../../../shared/services/sidenav/sidenav.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
+import { Select } from '@ngxs/store';
 
 @Component({
     selector: 'app-sidenav',
@@ -9,7 +14,17 @@ import { MatSidenav } from '@angular/material/sidenav';
 })
 export class SidenavComponent implements OnInit {
     @ViewChild('sidenav', { static: true }) public sidenav: MatSidenav;
-    constructor(private sidenavService: SidenavService) {}
+    @Select((state: AppState) => state.appSettings.soundMute) isSoundMuted$: Observable<boolean>;
+    @Select((state: AppState) => state.appSettings.darkModeEnabled) isDarkMode$: Observable<boolean>;
+
+    showSoundMenu = false;
+    showThemeMenu = false;
+
+    constructor(
+        private sidenavService: SidenavService,
+        private appSettingsService: AppSettingsService,
+        private themingService: ThemingService
+    ) {}
 
     ngOnInit(): void {
         this.sidenavService.setSidenav(this.sidenav);
@@ -17,6 +32,24 @@ export class SidenavComponent implements OnInit {
 
     public onClickRestartButton(): true {
         this.sidenavService.restartConnect4Game();
+        return true;
+    }
+
+    public toggleSoundMenu(): void {
+        this.showSoundMenu = !this.showSoundMenu;
+    }
+
+    public toggleThemeMenu(): void {
+        this.showThemeMenu = !this.showThemeMenu;
+    }
+
+    public setSoundMuteTo(value: boolean): boolean {
+        this.appSettingsService.switchSoundToMute(value);
+        return true;
+    }
+
+    public setDarkModeTo(value: boolean): boolean {
+        this.themingService.themeBS.next(value ? 'dark-theme' : 'light-theme');
         return true;
     }
 }
