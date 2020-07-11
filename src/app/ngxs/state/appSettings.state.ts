@@ -1,7 +1,7 @@
-import { ThemingService } from './../../shared/services/theming/theming.service';
 import { Injectable } from '@angular/core';
-import { State, Action, StateContext, Selector } from '@ngxs/store';
-import { SetDarkMode, SetDarkModeArgs } from './../actions/appSettings.actions';
+import { Action, Selector, State, StateContext } from '@ngxs/store';
+
+import { SetDarkMode } from './../actions/appSettings.actions';
 
 export interface AppSettingsModel {
     darkModeEnabled: boolean;
@@ -15,7 +15,7 @@ export interface AppSettingsModel {
 })
 @Injectable()
 export class AppSettingsState {
-    constructor(private theming: ThemingService) {}
+    constructor() {}
 
     @Selector()
     static getDarkMode(state: AppSettingsModel): boolean {
@@ -23,7 +23,7 @@ export class AppSettingsState {
     }
 
     @Action(SetDarkMode)
-    setDarkMode({ getState, patchState }: StateContext<AppSettingsModel>, payload: SetDarkModeArgs): void {
+    setDarkMode({ getState, patchState }: StateContext<AppSettingsModel>, payload: SetDarkMode): void {
         const state = getState();
         patchState({
             ...state,

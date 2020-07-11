@@ -1,3 +1,4 @@
+import { Connect4State } from './ngxs/state/connect4.state';
 import { AppSettingsState } from './ngxs/state/appSettings.state';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -15,6 +16,7 @@ import { MaterialModule } from './modules/material/material.modules';
 import { SidenavModule } from './modules/sidenav/sidenav.module';
 import { SidenavService } from './shared/services/sidenav/sidenav.service';
 import { ThemingService } from './shared/services/theming/theming.service';
+import RootState from './ngxs/state/root.state';
 
 @NgModule({
     declarations: [AppComponent],
@@ -26,7 +28,7 @@ import { ThemingService } from './shared/services/theming/theming.service';
         SidenavModule,
         MaterialModule,
         FooterModule,
-        NgxsModule.forRoot([AppSettingsState], {
+        NgxsModule.forRoot([...RootState], {
             developmentMode: !environment.production
         }),
         NgxsReduxDevtoolsPluginModule.forRoot(),
