@@ -1,5 +1,10 @@
 @mixin disk-theme($theme) {
-    $emptyItemColor: #ffff;
+    $primary: map-get($theme, primary);
+    $accent: map-get($theme, accent);
+    $warn: map-get($theme, warn);
+    $background: map-get($theme, background);
+    $foreground: map-get($theme, foreground);
+
     $player1DiskColor: #f9e79f;
     $player2DiskColor: lightcoral;
 
@@ -7,7 +12,7 @@
         width: 100%;
         height: 100%;
         border-radius: 50%;
-        background-color: $emptyItemColor;
+        background-color: mat-color($background, card);
         display: flex;
         align-items: center;
         justify-content: center;

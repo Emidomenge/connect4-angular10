@@ -20,7 +20,7 @@ export class ToolbarComponent implements OnInit {
         this.theming.themeBS.next(theme);
     }
 
-    toggleSidenav() {
+    toggleSidenav(): void {
         this.sidenavService.toggle();
     }
 }
