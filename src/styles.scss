@@ -10,11 +10,13 @@
 @import './app/modules/connect4/components/disk/disk.component';
 @import './app/modules/header/components/toolbar/toolbar.component';
 @import './app/modules/sidenav/components/sidenav/sidenav.component';
+@import './app/modules/footer/components/signature/signature.component';
 @mixin custom-components-theme($theme) {
     @include board-theme($theme);
     @include disk-theme($theme);
     @include toolbar-theme($theme);
     @include sidenav-theme($theme);
+    @include signature-theme($theme);
 }
 
 // Light theme

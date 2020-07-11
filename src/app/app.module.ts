@@ -1,3 +1,4 @@
+import { FooterModule } from './modules/footer/footer.module';
 import { MaterialModule } from './modules/material/material.modules';
 import { SidenavService } from './shared/services/sidenav/sidenav.service';
 import { SidenavModule } from './modules/sidenav/sidenav.module';
@@ -12,7 +13,15 @@ import { HeaderModule } from './modules/header/header.module';
 
 @NgModule({
     declarations: [AppComponent],
-    imports: [BrowserModule, BrowserAnimationsModule, Connect4Module, HeaderModule, SidenavModule, MaterialModule],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        Connect4Module,
+        HeaderModule,
+        SidenavModule,
+        MaterialModule,
+        FooterModule
+    ],
     providers: [ThemingService, SidenavService],
     bootstrap: [AppComponent]
 })

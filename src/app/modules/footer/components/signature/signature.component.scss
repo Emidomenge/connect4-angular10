@@ -1,0 +1,25 @@
+@mixin signature-theme($theme) {
+    $primary: map-get($theme, primary);
+    $accent: map-get($theme, accent);
+    $warn: map-get($theme, warn);
+    $background: map-get($theme, background);
+    $foreground: map-get($theme, foreground);
+
+    .signature__container {
+        color: white; // force always white color
+        background: mat-color($primary, darker);
+        display: flex;
+        justify-content: center;
+        padding: 16px 0;
+
+        & a {
+            margin-left: 4px;
+            text-decoration: none;
+            color: mat-color($accent, darker);
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

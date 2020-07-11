@@ -2,13 +2,13 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en" datatype="plaintext" original="ng2.template">
     <body>
-      <trans-unit id="test">
-        <source>test</source>
-        <target>This is a test</target>
-      </trans-unit>
       <trans-unit id="app.name">
         <source>Connect 4 with Angular</source>
         <target>Connect 4 with Angular</target>
+      </trans-unit>
+      <trans-unit id="app.creatorFullName">
+        <source>EDH</source>
+        <target>Emilien Domenge-Heritier</target>
       </trans-unit>
       <trans-unit id="app.shortName">
         <source>C4 Angular</source>
@@ -33,6 +33,10 @@
       <trans-unit id="sidenav.restartBtnLabel">
         <source>Restart game</source>
         <target>Restart the game</target>
+      </trans-unit>
+      <trans-unit id="footer.madeBy">
+        <source>Project made by</source>
+        <target>Project made by</target>
       </trans-unit>
     </body>
   </file>
