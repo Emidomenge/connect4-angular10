@@ -6,6 +6,10 @@
     $background: map-get($theme, background);
     $foreground: map-get($theme, foreground);
 
+    mat-grid-tile {
+        overflow: visible;
+    }
+
     .board__container {
         width: 95%;
         margin: 8px auto;
@@ -39,5 +43,6 @@
     .board__disk__container {
         width: 100%;
         height: 100%;
+        position: relative;
     }
 }

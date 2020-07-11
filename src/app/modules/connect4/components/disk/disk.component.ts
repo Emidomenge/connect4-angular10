@@ -33,7 +33,7 @@ export class DiskComponent implements OnInit {
     private checkIfConcerned(slotFilled: number, playerIndex: PlayerIndex): void {
         if (this.index === slotFilled) {
             this.filledBy = playerIndex;
-            this.audioService.playAudio('diskAdded');
+            this.audioService.playAudio('diskAdded', 220);
         }
     }
 }

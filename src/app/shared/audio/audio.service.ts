@@ -13,10 +13,13 @@ export class AudioService {
     };
     constructor() {}
 
-    public playAudio(soundTitle: 'diskAdded' | 'columnFull' | 'noWinner' | 'victory' | 'error'): void {
+    public playAudio(
+        soundTitle: 'diskAdded' | 'columnFull' | 'noWinner' | 'victory' | 'error',
+        delay: number = 0
+    ): void {
         const audio = new Audio();
         audio.src = this.soundLibrary[soundTitle];
         audio.load();
-        audio.play();
+        setTimeout(() => audio.play(), delay);
     }
 }
