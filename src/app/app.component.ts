@@ -32,21 +32,17 @@ export class AppComponent implements OnInit, OnDestroy {
         this.connect4Service.diskAddedSubject.subscribe(() => {
             const gameFinishInfo = this.connect4Service.checkGameFinished();
             if (gameFinishInfo !== null) {
-                this.store.dispatch(new SetGameOver(gameFinishInfo.byPlayer, gameFinishInfo.winConditionResolved));
+                this.connect4Service.gameFinish(gameFinishInfo);
 
                 // play audio
                 const hasIdentifiedWinner = gameFinishInfo.byPlayer !== null;
                 this.audioService.playAudio(hasIdentifiedWinner ? 'victory' : 'noWinner');
             }
         });
-        this.startNewGame();
+        this.connect4Service.newGame();
     }
 
     ngOnDestroy(): void {
         this.themingSubscription.unsubscribe();
-    }
-
-    public startNewGame(): void {
-        this.store.dispatch(new StartNewGame());
     }
 }

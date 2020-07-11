@@ -1,5 +1,5 @@
 import { AudioService } from './../../shared/audio/audio.service';
-import { UpdateBoard } from './../../ngxs/actions/connect4.actions';
+import { UpdateBoard, SetGameOver, StartNewGame } from './../../ngxs/actions/connect4.actions';
 import { connect4 } from './../../settings/index';
 import { AppState } from './../../ngxs/index';
 import { PlayerIndex, Connect4Board, GameOverInfo } from './../../ngxs/state/connect4.state';
@@ -8,13 +8,25 @@ import { Subject } from 'rxjs';
 import { Store } from '@ngxs/store';
 
 export type DiskAddedSubject = { slotFilled: number; byPlayerIndex: PlayerIndex };
+export type GameStatusSubject = { status: 'gameOver' | 'newGame' };
 
 @Injectable({
     providedIn: 'root'
 })
 export class Connect4Service {
-    diskAddedSubject: Subject<DiskAddedSubject> = new Subject();
+    diskAddedSubject: Subject<DiskAddedSubject> = new Subject(); // trigger when a disk is added
+    gameStatusSubject: Subject<GameStatusSubject> = new Subject(); // trigger when game finished or start
     constructor(private store: Store, private audioService: AudioService) {}
+
+    public gameFinish(gameFinishInfo: GameOverInfo): void {
+        this.store.dispatch(new SetGameOver(gameFinishInfo.byPlayer, gameFinishInfo.winConditionResolved));
+        this.gameStatusSubject.next({ status: 'gameOver' });
+    }
+
+    public newGame(): void {
+        this.store.dispatch(new StartNewGame());
+        this.gameStatusSubject.next({ status: 'newGame' });
+    }
 
     public addDiskInColumn(columnIndex: number, playerIndex: PlayerIndex): null | number {
         const board = this.store.selectSnapshot<Connect4Board>((state: AppState) => state.connect4.currentBoard);
