@@ -22,6 +22,14 @@
         <source>Dark mode</source>
         <target>Mode nuit</target>
       </trans-unit>
+      <trans-unit id="app.lgFrench">
+        <source>French</source>
+        <target>Français</target>
+      </trans-unit>
+      <trans-unit id="app.lgEnglish">
+        <source>English</source>
+        <target>Anglais</target>
+      </trans-unit>
       <trans-unit id="toolbar.changeTheme">
         <source>Change theme</source>
         <target>Changer de thème</target>
@@ -38,6 +46,10 @@
         <source>Github</source>
         <target>Github</target>
       </trans-unit>
+      <trans-unit id="toolbar.changeLanguage">
+        <source>Change language</source>
+        <target>Changer de langue</target>
+      </trans-unit>
       <trans-unit id="sidenav.restartBtnLabel">
         <source>Restart game</source>
         <target>Nouvelle partie</target>
@@ -45,6 +57,10 @@
       <trans-unit id="sidenav.viewGithub">
         <source>View on Github</source>
         <target>Voir sur Github</target>
+      </trans-unit>
+      <trans-unit id="sidenav.language">
+        <source>Languages</source>
+        <target>Langues</target>
       </trans-unit>
       <trans-unit id="sidenav.LightMode">
         <source>Light mode</source>

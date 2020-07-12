@@ -18,12 +18,29 @@
     >
         <mat-icon>volume_off</mat-icon>
     </button>
-    <button mat-icon-button [matMenuTriggerFor]="menu" [matTooltip]="label.changeTheme" *ngIf="breakpoint !== 'xs'">
+    <button
+        mat-icon-button
+        [matMenuTriggerFor]="themeMenu"
+        [matTooltip]="label.changeTheme"
+        *ngIf="breakpoint !== 'xs'"
+    >
         <mat-icon>format_color_fill</mat-icon>
     </button>
-    <mat-menu #menu="matMenu">
+    <mat-menu #themeMenu="matMenu">
         <button mat-menu-item (click)="changeTheme('light-theme')" i18n="@@app.lightMode">Light mode</button>
         <button mat-menu-item (click)="changeTheme('dark-theme')" i18n="@@app.darkMode">Dark mode</button>
+    </mat-menu>
+    <button
+        mat-icon-button
+        [matMenuTriggerFor]="languageMenu"
+        [matTooltip]="label.changeLanguage"
+        *ngIf="breakpoint !== 'xs'"
+    >
+        <mat-icon>translate</mat-icon>
+    </button>
+    <mat-menu #languageMenu="matMenu">
+        <a mat-menu-item href="/fr/" i18n="@@app.lgFrench">French</a>
+        <a mat-menu-item href="/en/" i18n="@@app.lgEnglish">English</a>
     </mat-menu>
     <a mat-button href="https://github.com/Emidomenge/connect4-angular10" *ngIf="breakpoint !== 'xs'">
         <img class="toolbar__github-logo" src="assets/img/github-circle-white-transparent.svg" />

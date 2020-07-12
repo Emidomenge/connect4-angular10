@@ -19,7 +19,8 @@ export class ToolbarComponent implements OnInit {
     label = {
         changeTheme: $localize`:@@toolbar.changeTheme:Change theme`,
         muteSound: $localize`:@@toolbar.muteSound:Mute sound`,
-        unmuteSound: $localize`:@@toolbar.unmuteSound:Unmute sound`
+        unmuteSound: $localize`:@@toolbar.unmuteSound:Unmute sound`,
+        changeLanguage: $localize`:@@toolbar.changeLanguage:Change language`
     };
     @Select((state: AppState) => state.appSettings.soundMute) isSoundMuted$: Observable<boolean>;
     constructor(

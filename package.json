@@ -3,9 +3,8 @@
     "version": "0.0.0",
     "scripts": {
         "ng": "ng",
-        "start": "ng serve",
+        "start": "ng serve --configuration=en",
         "start:fr": "ng serve --configuration=fr",
-        "start:en": "ng serve --configuration=en",
         "build": "ng build",
         "build:prod": "ng build --prod --localize",
         "release": "firebase deploy",

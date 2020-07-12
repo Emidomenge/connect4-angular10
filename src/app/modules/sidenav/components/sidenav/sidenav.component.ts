@@ -19,6 +19,7 @@ export class SidenavComponent implements OnInit {
 
     showSoundMenu = false;
     showThemeMenu = false;
+    showLanguageMenu = false;
 
     constructor(
         private sidenavService: SidenavService,
@@ -41,6 +42,10 @@ export class SidenavComponent implements OnInit {
 
     public toggleThemeMenu(): void {
         this.showThemeMenu = !this.showThemeMenu;
+    }
+
+    public toggleLanguageMenu(): void {
+        this.showLanguageMenu = !this.showLanguageMenu;
     }
 
     public setSoundMuteTo(value: boolean): boolean {
