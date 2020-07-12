@@ -1,5 +1,11 @@
 # Connect4Angular
 
+<div align="center">
+
+![](src/assets/img/demo.gif)
+
+</div>
+
 Simple Connect4 game build with [Angular 10](https://angular.io/) (v10.0.1), written in TypeScript and SCSS.
 
 Project created by [Emilien Domenge-Heritier](https://www.domenge.fr/)
