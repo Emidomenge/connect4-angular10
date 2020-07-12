@@ -1,27 +1,93 @@
 # Connect4Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.1.
+Simple Connect4 game build with [Angular 10](https://angular.io/) (v10.0.1), written in TypeScript and SCSS.
 
-## Development server
+Project created by [Emilien Domenge-Heritier](https://www.domenge.fr/)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Demo
 
-## Code scaffolding
+-   [Connect4Angular app](https://connect4-angular-2acfb.web.app/)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Main features
 
-## Build
+-   Connect 4 game mechanism.
+-   SCSS written with BEM syntax.
+-   Responsive Design. Supports desktop and mobile platform.
+-   Supports multi languages (i18n). French and English actually.
+-   Dark mode and light mode available.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Run in local
 
-## Running unit tests
+1. Clone the project
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+2. Go to the path where you cloned the project and run:
 
-## Running end-to-end tests
+    ```
+    npm install
+    ```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+3. Then execute:
 
-## Further help
+    ```
+    npm run start
+    ```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+4. Navigate to [`http://localhost:4200/`](http://localhost:4200/). The app will automatically reload if you change any of the source files.
+
+## Available commands
+
+-   Start the project locally with specific language
+
+    ```bash
+    npm run start # english version
+
+    npm run start:fr # french version
+    ```
+
+-   Build the project
+
+    ```bash
+    npm run build:prod
+    ```
+
+-   Run unit tests
+    ```bash
+    npm run test
+    ```
+    Or run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Framework/Libraries Used
+
+-   [NGXS](https://www.ngxs.io/)
+-   [Angular Material](https://material.angular.io/)
+-   [Prettier](https://prettier.io/)
+-   [Angular Localize](https://angular.io/guide/migration-localize)
+-   [RxJS](https://www.learnrxjs.io/)
+-   [Angular Component Dev Kit (CDK)](https://material.angular.io/cdk/categories)
+-   [Firebase](https://firebase.google.com/docs/hosting)
+
+## Project Structure
+
+TODO
+
+## Breakpoints
+
+-   `xxs` = screen width below **324px**.
+-   `xs` = screen width between **324px** and **576px**.
+-   `sm` = screen width between **576px** and **768px**.
+-   `md` = screen width between **768px** and **992px**.
+-   `lg` = screen width above **992px**.
+
+## Tested and supported browsers
+
+-   Chrome ✅
+-   Firefox ✅
+-   Safari ✅
+-   Internet Explorer 11 ✅
+
+## Tested devices
+
+-   Desktop ✅
+-   Mobile
+    -   Android ✅
+    -   iOS 🟠⚠️ (**NOTE**: Sound disable by default, due to performance issue)
