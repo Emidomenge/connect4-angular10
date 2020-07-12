@@ -47,6 +47,6 @@ export class DiskComponent implements OnInit {
         const winConditionResolved = this.store.selectSnapshot<number[]>(
             (state: AppState) => state.connect4.winConditionResolved
         );
-        this.isMatchingWinCondition = winConditionResolved.includes(this.index);
+        this.isMatchingWinCondition = winConditionResolved !== null && winConditionResolved.includes(this.index);
     }
 }
