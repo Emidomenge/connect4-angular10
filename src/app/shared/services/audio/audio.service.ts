@@ -1,5 +1,5 @@
-import { AppSettingsService } from './../services/appSettings/app-service.service';
-import { AppState } from './../../ngxs/index';
+import { AppSettingsService } from './../../services/appSettings/app-service.service';
+import { AppState } from './../../../ngxs/index';
 import { Store } from '@ngxs/store';
 import { Injectable } from '@angular/core';
 

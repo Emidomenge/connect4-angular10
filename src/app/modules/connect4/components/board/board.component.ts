@@ -5,7 +5,7 @@ import { Store } from '@ngxs/store';
 import { AppState } from './../../../../ngxs';
 import { PlayerIndex } from './../../../../ngxs/state/connect4.state';
 import { connect4 } from './../../../../settings';
-import { AudioService } from './../../../../shared/audio/audio.service';
+import { AudioService } from './../../../../shared/services/audio/audio.service';
 import { Connect4Service } from './../../connect4.service';
 
 @Component({

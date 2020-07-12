@@ -3,7 +3,7 @@ import { Store } from '@ngxs/store';
 import { Subscription } from 'rxjs';
 
 import { Connect4Service } from './modules/connect4/connect4.service';
-import { AudioService } from './shared/audio/audio.service';
+import { AudioService } from './shared/services/audio/audio.service';
 import { AppSettingsService } from './shared/services/appSettings/app-service.service';
 import { ThemingService } from './shared/services/theming/theming.service';
 

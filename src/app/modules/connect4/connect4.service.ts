@@ -1,4 +1,4 @@
-import { AudioService } from './../../shared/audio/audio.service';
+import { AudioService } from './../../shared/services/audio/audio.service';
 import { UpdateBoard, SetGameOver, StartNewGame } from './../../ngxs/actions/connect4.actions';
 import { connect4 } from './../../settings/index';
 import { AppState } from './../../ngxs/index';
