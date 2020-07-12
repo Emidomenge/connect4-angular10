@@ -3,6 +3,7 @@
     <span i18n="@@app.name">Connect 4 with Angular</span>
     <span class="toolbar__spacer"></span>
     <button
+        class="toolbar__mute-button"
         mat-icon-button
         [matTooltip]="label.muteSound"
         (click)="muteSound(true)"
@@ -11,6 +12,7 @@
         <mat-icon>volume_up</mat-icon>
     </button>
     <button
+        class="toolbar__unmute-button"
         mat-icon-button
         [matTooltip]="label.unmuteSound"
         (click)="muteSound(false)"

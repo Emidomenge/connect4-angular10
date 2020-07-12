@@ -41,9 +41,6 @@ export class BreakpointService {
         this.breakpointObserver
             .observe([`(min-width: ${breakpoints.screen_xs_min}px)`])
             .subscribe((result) => this.updateInternalState({ xs: result.matches }));
-        // this.breakpointObserver
-        //     .observe([`(min-width: ${breakpoints.screen_sm_min}px)`])
-        //     .subscribe((result) => this.updateInternalState({ sm: result.matches }));
         this.breakpointObserver
             .observe([`(max-width: ${breakpoints.screen_xs_min}px)`])
             .subscribe((result) => this.updateInternalState({ xxs: result.matches }));
@@ -79,6 +76,5 @@ export class BreakpointService {
     }): void {
         this.internalState = { ...this.internalState, ...payload };
         this.breakpointBS.next(this.detectCurrentBreakpoint());
-        console.log(this.detectCurrentBreakpoint(), 'breakp');
     }
 }

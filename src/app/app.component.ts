@@ -1,13 +1,11 @@
-import { AppSettingsService } from './shared/services/appSettings/app-service.service';
-import { AudioService } from './shared/audio/audio.service';
-import { SetGameOver } from './ngxs/actions/connect4.actions';
-import { Connect4Service } from './modules/connect4/connect4.service';
-import { StartNewGame } from './ngxs/actions/connect4.actions';
-import { SetDarkMode } from './ngxs/actions/appSettings.actions';
-import { ThemingService } from './shared/services/theming/theming.service';
-import { Component, HostBinding, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, HostBinding, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngxs/store';
+import { Subscription } from 'rxjs';
+
+import { Connect4Service } from './modules/connect4/connect4.service';
+import { AudioService } from './shared/audio/audio.service';
+import { AppSettingsService } from './shared/services/appSettings/app-service.service';
+import { ThemingService } from './shared/services/theming/theming.service';
 
 @Component({
     selector: 'app-root',
