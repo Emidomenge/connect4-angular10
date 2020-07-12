@@ -1,0 +1,25 @@
+<div
+    class="banner-info__container"
+    [ngClass]="{
+        'banner-info__container--game-over': isGameOver
+    }"
+>
+    <div class="banner-info__game-over-section" *ngIf="isGameOver">
+        {{ gameOverLabel }}
+    </div>
+    <div class="banner-info__player-name-section">
+        <div
+            class="banner-info__player-name-label"
+            [ngClass]="{
+                'banner-info__player-name-label--player1-playing': playingPlayerIndex === 1,
+                'banner-info__player-name-label--player2-playing': playingPlayerIndex === 2
+            }"
+        >
+            {{ playerNameLabel }}
+        </div>
+        <div>{{ playerStatusLabel }}</div>
+    </div>
+    <div class="banner-info__new-game-section" *ngIf="isGameOver">
+        <button mat-stroked-button i18n="@@notificationInfo.playAgain" (click)="newGame()">Play again</button>
+    </div>
+</div>

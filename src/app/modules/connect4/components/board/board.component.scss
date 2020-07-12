@@ -1,0 +1,56 @@
+@import '../../../../breakpoints/breakpoints.scss';
+@mixin board-theme($theme) {
+    $primary: map-get($theme, primary);
+    $accent: map-get($theme, accent);
+    $warn: map-get($theme, warn);
+    $background: map-get($theme, background);
+    $foreground: map-get($theme, foreground);
+
+    mat-grid-tile {
+        overflow: visible;
+    }
+
+    .board__container {
+        width: 95%;
+        margin: 24px auto;
+        padding: 0 10px;
+        padding-bottom: 0 !important;
+        border-radius: 30px;
+        background-color: mat-color($primary, darker);
+        @include xs {
+            max-width: 380px;
+        }
+        @include sm {
+            width: 420px;
+            max-width: unset;
+        }
+        @include md {
+            width: 560px;
+            max-width: unset;
+        }
+    }
+
+    .board__column {
+        width: 100%;
+        background-color: mat-color($primary, darker);
+        border-radius: 20px;
+
+        &:hover {
+            background-color: mat-color($accent, lighter, 0.4);
+            cursor: pointer;
+        }
+
+        &.board__column--game-over {
+            &:hover {
+                background-color: inherit;
+                cursor: auto;
+            }
+        }
+    }
+
+    .board__disk__container {
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+}

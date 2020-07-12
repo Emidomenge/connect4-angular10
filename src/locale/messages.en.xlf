@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="app.name">
+        <source>Connect 4 with Angular</source>
+        <target>Connect 4 with Angular</target>
+      </trans-unit>
+      <trans-unit id="app.creatorFullName">
+        <source>EDH</source>
+        <target>Emilien Domenge-Heritier</target>
+      </trans-unit>
+      <trans-unit id="app.shortName">
+        <source>C4 Angular</source>
+        <target>C4 Angular</target>
+      </trans-unit>
+      <trans-unit id="app.lightMode">
+        <source>Light mode</source>
+        <target>Light mode</target>
+      </trans-unit>
+      <trans-unit id="app.darkMode">
+        <source>Dark mode</source>
+        <target>Dark mode</target>
+      </trans-unit>
+      <trans-unit id="app.lgFrench">
+        <source>French</source>
+        <target>French</target>
+      </trans-unit>
+      <trans-unit id="app.lgEnglish">
+        <source>English</source>
+        <target>English</target>
+      </trans-unit>
+      <trans-unit id="toolbar.changeTheme">
+        <source>Change theme</source>
+        <target>Change theme</target>
+      </trans-unit>
+      <trans-unit id="toolbar.muteSound">
+        <source>Mute sound</source>
+        <target>Mute sound</target>
+      </trans-unit>
+      <trans-unit id="toolbar.unmuteSound">
+        <source>Unmute sound</source>
+        <target>Unmute sound</target>
+      </trans-unit>
+      <trans-unit id="toolbar.viewGithub">
+        <source>Github</source>
+        <target>Github</target>
+      </trans-unit>
+      <trans-unit id="toolbar.changeLanguage">
+        <source>Change language</source>
+        <target>Change language</target>
+      </trans-unit>
+      <trans-unit id="sidenav.restartBtnLabel">
+        <source>Restart game</source>
+        <target>New game</target>
+      </trans-unit>
+      <trans-unit id="sidenav.viewGithub">
+        <source>View on Github</source>
+        <target>View on Github</target>
+      </trans-unit>
+      <trans-unit id="sidenav.language">
+        <source>Languages</source>
+        <target>Languages</target>
+      </trans-unit>
+      <trans-unit id="sidenav.LightMode">
+        <source>Light mode</source>
+        <target>Light mode</target>
+      </trans-unit>
+      <trans-unit id="sidenav.DarkMode">
+        <source>Dark mode</source>
+        <target>Dark mode</target>
+      </trans-unit>
+      <trans-unit id="sidenav.Themes">
+        <source>Themes</source>
+        <target>Themes</target>
+      </trans-unit>
+      <trans-unit id="sidenav.Sound">
+        <source>Sound</source>
+        <target>Sound</target>
+      </trans-unit>
+      <trans-unit id="sidenav.Mute">
+        <source>Mute</source>
+        <target>Mute</target>
+      </trans-unit>
+      <trans-unit id="sidenav.Unmute">
+        <source>Unmute</source>
+        <target>Unmute</target>
+      </trans-unit>
+      <trans-unit id="footer.madeBy">
+        <source>Project made by</source>
+        <target>Project made by</target>
+      </trans-unit>
+      <trans-unit id="notificationInfo.player1">
+        <source>Player 1</source>
+        <target>Player 1</target>
+      </trans-unit>
+      <trans-unit id="notificationInfo.player2">
+        <source>Player 2</source>
+        <target>Player 2</target>
+      </trans-unit>
+      <trans-unit id="notificationInfo.yourTurn">
+        <source>your turn !</source>
+        <target>your turn !</target>
+      </trans-unit>
+      <trans-unit id="notificationInfo.wins">
+        <source>wins !</source>
+        <target>wins ! 🎉</target>
+      </trans-unit>
+      <trans-unit id="notificationInfo.noWinner">
+        <source>No winner !</source>
+        <target>No winner ! 😢</target>
+      </trans-unit>
+      <trans-unit id="notificationInfo.gameOver">
+        <source>Game over.</source>
+        <target>Game over.</target>
+      </trans-unit>
+      <trans-unit id="notificationInfo.draw">
+        <source>Draw.</source>
+        <target>Draw.</target>
+      </trans-unit>
+      <trans-unit id="notificationInfo.playAgain">
+        <source>Play again</source>
+        <target>Play again</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

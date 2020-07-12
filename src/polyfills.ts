@@ -1,3 +1,7 @@
+/***************************************************************************************************
+ * Load `$localize` onto the global scope - used if i18n tags appear in Angular templates.
+ */
+import '@angular/localize/init';
 /**
  * This file includes polyfills needed by Angular and is loaded before the app.
  * You can add your own extra polyfills to this file.
@@ -19,14 +23,28 @@
  */
 
 /** IE10 and IE11 requires the following for NgClass support on SVG elements */
-// import 'classlist.js';  // Run `npm install --save classlist.js`.
+import 'classlist.js'; // Run `npm install --save classlist.js`.
 
+import 'core-js/es/symbol';
+import 'core-js/es/object';
+import 'core-js/es/function';
+import 'core-js/es/parse-int';
+import 'core-js/es/parse-float';
+import 'core-js/es/number';
+import 'core-js/es/math';
+import 'core-js/es/string';
+import 'core-js/es/date';
+import 'core-js/es/regexp';
+import 'core-js/es/map';
+import 'core-js/es/weak-map';
+import 'core-js/es/set';
+import 'core-js/es/array';
 /**
  * Web Animations `@angular/platform-browser/animations`
  * Only required if AnimationBuilder is used within the application and using IE/Edge or Safari.
  * Standard animation support in Angular DOES NOT require any polyfills (as of Angular 6.0).
  */
-// import 'web-animations-js';  // Run `npm install --save web-animations-js`.
+import 'web-animations-js'; // Run `npm install --save web-animations-js`.
 
 /**
  * By default, zone.js will patch all possible macroTask and DomEvents
@@ -55,8 +73,7 @@
 /***************************************************************************************************
  * Zone JS is required by default for Angular itself.
  */
-import 'zone.js/dist/zone';  // Included with Angular CLI.
-
+import 'zone.js/dist/zone'; // Included with Angular CLI.
 
 /***************************************************************************************************
  * APPLICATION IMPORTS

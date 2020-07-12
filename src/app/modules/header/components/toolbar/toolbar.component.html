@@ -1,0 +1,46 @@
+<mat-toolbar color="primary">
+    <mat-icon class="toolbar__menu-icon" (click)="toggleSidenav()">menu</mat-icon>
+    <span i18n="@@app.name">Connect 4 with Angular</span>
+    <span class="toolbar__spacer"></span>
+    <button
+        class="toolbar__mute-button"
+        mat-icon-button
+        [matTooltip]="label.muteSound"
+        (click)="muteSound(true)"
+        *ngIf="!isPhoneDevice() && (isSoundMuted$ | async) === false"
+    >
+        <mat-icon>volume_up</mat-icon>
+    </button>
+    <button
+        class="toolbar__unmute-button"
+        mat-icon-button
+        [matTooltip]="label.unmuteSound"
+        (click)="muteSound(false)"
+        *ngIf="!isPhoneDevice() && (isSoundMuted$ | async) === true"
+    >
+        <mat-icon>volume_off</mat-icon>
+    </button>
+    <button mat-icon-button [matMenuTriggerFor]="themeMenu" [matTooltip]="label.changeTheme" *ngIf="!isPhoneDevice()">
+        <mat-icon>format_color_fill</mat-icon>
+    </button>
+    <mat-menu #themeMenu="matMenu">
+        <button mat-menu-item (click)="changeTheme('light-theme')" i18n="@@app.lightMode">Light mode</button>
+        <button mat-menu-item (click)="changeTheme('dark-theme')" i18n="@@app.darkMode">Dark mode</button>
+    </mat-menu>
+    <button
+        mat-icon-button
+        [matMenuTriggerFor]="languageMenu"
+        [matTooltip]="label.changeLanguage"
+        *ngIf="!isPhoneDevice()"
+    >
+        <mat-icon>translate</mat-icon>
+    </button>
+    <mat-menu #languageMenu="matMenu">
+        <a mat-menu-item href="/fr/" i18n="@@app.lgFrench">French</a>
+        <a mat-menu-item href="/en/" i18n="@@app.lgEnglish">English</a>
+    </mat-menu>
+    <a mat-button href="https://github.com/Emidomenge/connect4-angular10" *ngIf="!isPhoneDevice()">
+        <img class="toolbar__github-logo" src="assets/img/github-circle-white-transparent.svg" />
+        <span i18n="@@toolbar.viewGithub">Github</span>
+    </a>
+</mat-toolbar>

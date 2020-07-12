@@ -1,0 +1,46 @@
+// Ultra small smartphones (iPhone SE)
+$screen-xs-min: 324px;
+
+// Small tablets and large smartphones (landscape view)
+$screen-sm-min: 576px;
+
+// Small tablets (portrait view)
+$screen-md-min: 768px;
+
+// Tablets and small desktops
+$screen-lg-min: 992px;
+
+// Mega small devices (iPhone SE)
+@mixin xss {
+    @media (max-width: #{$screen-xs-min}) {
+        @content;
+    }
+}
+
+// Ultra small devices
+@mixin xs {
+    @media (min-width: #{$screen-xs-min}) {
+        @content;
+    }
+}
+
+// Small devices
+@mixin sm {
+    @media (min-width: #{$screen-sm-min}) {
+        @content;
+    }
+}
+
+// Medium devices
+@mixin md {
+    @media (min-width: #{$screen-md-min}) {
+        @content;
+    }
+}
+
+// Large devices
+@mixin lg {
+    @media (min-width: #{$screen-lg-min}) {
+        @content;
+    }
+}

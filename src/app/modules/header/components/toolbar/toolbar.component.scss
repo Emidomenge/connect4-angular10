@@ -1,0 +1,22 @@
+@mixin toolbar-theme($theme) {
+    $background: map-get($theme, background);
+    $foreground: map-get($theme, foreground);
+
+    .mat-toolbar.mat-primary {
+        color: white; // force always white color
+    }
+
+    .toolbar__spacer {
+        flex: 1 1 auto;
+    }
+
+    .toolbar__github-logo {
+        height: 26px;
+        padding-right: 8px;
+    }
+
+    .toolbar__menu-icon {
+        padding-right: 1rem;
+        cursor: pointer;
+    }
+}
