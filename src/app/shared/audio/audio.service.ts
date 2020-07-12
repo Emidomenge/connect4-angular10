@@ -1,3 +1,4 @@
+import { AppSettingsService } from './../services/appSettings/app-service.service';
 import { AppState } from './../../ngxs/index';
 import { Store } from '@ngxs/store';
 import { Injectable } from '@angular/core';
@@ -7,13 +8,19 @@ import { Injectable } from '@angular/core';
 })
 export class AudioService {
     soundLibrary = {
-        diskAdded: './../../../../../assets/audio/diskAdded.wav',
-        columnFull: './../../../../../assets/audio/error.wav',
-        error: './../../../../../assets/audio/error.wav',
-        victory: './../../../../../assets/audio/victory.wav',
-        noWinner: './../../../../../assets/audio/noWinner.wav'
+        diskAdded: 'assets/audio/diskAdded.wav',
+        columnFull: 'assets/audio/error.wav',
+        error: 'assets/audio/error.wav',
+        victory: 'assets/audio/victory.wav',
+        noWinner: 'assets/audio/noWinner.wav'
     };
-    constructor(private store: Store) {}
+    constructor(private store: Store, private appSettingsService: AppSettingsService) {
+        const iOSDeviceDetected = /iPad|iPhone|iPod/.test(navigator.platform || '');
+        if (iOSDeviceDetected) {
+            // mute sound by default
+            this.appSettingsService.switchSoundToMute(true);
+        }
+    }
 
     public playAudio(
         soundTitle: 'diskAdded' | 'columnFull' | 'noWinner' | 'victory' | 'error',

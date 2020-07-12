@@ -80,11 +80,11 @@
       </trans-unit>
       <trans-unit id="sidenav.Mute">
         <source>Mute</source>
-        <target>Actif</target>
+        <target>Muet</target>
       </trans-unit>
       <trans-unit id="sidenav.Unmute">
         <source>Unmute</source>
-        <target>Inactif</target>
+        <target>Activé</target>
       </trans-unit>
       <trans-unit id="footer.madeBy">
         <source>Project made by</source>
