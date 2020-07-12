@@ -1,4 +1,9 @@
-<div class="banner-info__container">
+<div
+    class="banner-info__container"
+    [ngClass]="{
+        'banner-info__container--game-over': isGameOver
+    }"
+>
     <div class="banner-info__game-over-section" *ngIf="isGameOver">
         {{ gameOverLabel }}
     </div>

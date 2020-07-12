@@ -4,7 +4,7 @@ export const connect4 = {
     boardHeight: {
         xs: '370px',
         sm: '400px',
-        md: '545px',
-        lg: '730px'
+        md: '500px',
+        lg: '500px'
     }
 };

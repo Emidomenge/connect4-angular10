@@ -8,12 +8,16 @@
     $foreground: map-get($theme, foreground);
 
     .banner-info__container {
-        height: 25vh;
-        max-height: 200px;
+        max-height: 140px;
         font-size: 24px;
         display: flex;
         justify-content: space-around;
         flex-direction: column;
+
+        &.banner-info__container--game-over {
+            height: 35vh;
+            margin-top: 24px;
+        }
     }
 
     .banner-info__game-over-section,
