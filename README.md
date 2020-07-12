@@ -192,7 +192,7 @@ connect4-angular
 -   Chrome ✅
 -   Firefox ✅
 -   Safari ✅
--   Internet Explorer 11 ✅
+-   Internet Explorer 11 ✅ (**NOTE**: Minor CSS issue but the game and other features are all working properly)
 
 ## Tested devices
 
