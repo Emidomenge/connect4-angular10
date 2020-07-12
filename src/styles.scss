@@ -2,11 +2,19 @@
 @include mat-core();
 
 /************************
+ Global section
+************************/
+
+$player1DiskColor: #f9e79f;
+$player2DiskColor: lightcoral;
+
+/************************
  Theming section
 ************************/
 
 // Custom themable components
 @import './app/modules/connect4/components/board/board.component';
+@import './app/modules/connect4/components/banner-info/banner-info.component';
 @import './app/modules/connect4/components/disk/disk.component';
 @import './app/modules/header/components/toolbar/toolbar.component';
 @import './app/modules/sidenav/components/sidenav/sidenav.component';
@@ -17,6 +25,7 @@
     @include toolbar-theme($theme);
     @include sidenav-theme($theme);
     @include signature-theme($theme);
+    @include banner-info-theme($theme);
 }
 
 // Light theme

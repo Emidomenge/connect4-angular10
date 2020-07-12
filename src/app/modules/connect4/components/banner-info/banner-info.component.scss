@@ -1,0 +1,43 @@
+@import '../../../../breakpoints/breakpoints.scss';
+
+@mixin banner-info-theme($theme) {
+    $primary: map-get($theme, primary);
+    $accent: map-get($theme, accent);
+    $warn: map-get($theme, warn);
+    $background: map-get($theme, background);
+    $foreground: map-get($theme, foreground);
+
+    .banner-info__container {
+        height: 25vh;
+        max-height: 200px;
+        font-size: 24px;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+    }
+
+    .banner-info__game-over-section,
+    .banner-info__player-name-section,
+    .banner-info__new-game-section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .banner-info__game-over-section {
+        font-size: 34px;
+    }
+
+    .banner-info__player-name-label {
+        font-weight: bold;
+        margin-right: 8px;
+
+        &.banner-info__player-name-label--player1-playing {
+            color: $player1DiskColor;
+        }
+
+        &.banner-info__player-name-label--player2-playing {
+            color: $player2DiskColor;
+        }
+    }
+}

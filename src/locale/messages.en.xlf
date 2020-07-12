@@ -90,6 +90,38 @@
         <source>Project made by</source>
         <target>Project made by</target>
       </trans-unit>
+      <trans-unit id="notificationInfo.player1">
+        <source>Player 1</source>
+        <target>Player 1</target>
+      </trans-unit>
+      <trans-unit id="notificationInfo.player2">
+        <source>Player 2</source>
+        <target>Player 2</target>
+      </trans-unit>
+      <trans-unit id="notificationInfo.yourTurn">
+        <source>your turn !</source>
+        <target>your turn !</target>
+      </trans-unit>
+      <trans-unit id="notificationInfo.wins">
+        <source>wins !</source>
+        <target>wins ! 🎉</target>
+      </trans-unit>
+      <trans-unit id="notificationInfo.noWinner">
+        <source>No winner !</source>
+        <target>No winner ! 😢</target>
+      </trans-unit>
+      <trans-unit id="notificationInfo.gameOver">
+        <source>Game over.</source>
+        <target>Game over.</target>
+      </trans-unit>
+      <trans-unit id="notificationInfo.draw">
+        <source>Draw.</source>
+        <target>Draw.</target>
+      </trans-unit>
+      <trans-unit id="notificationInfo.playAgain">
+        <source>Play again</source>
+        <target>Play again</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

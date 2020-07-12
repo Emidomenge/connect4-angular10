@@ -82,11 +82,11 @@ export class Connect4State {
     }
 
     @Action(SetGameOver)
-    setGameOver({ getState, patchState }: StateContext<Connect4Model>, payload: GameOverInfo): void {
+    setGameOver({ getState, patchState }: StateContext<Connect4Model>, payload: SetGameOver): void {
         const state = getState();
         patchState({
             ...state,
-            winner: payload.byPlayer,
+            winner: payload.winnerPlayerIndex,
             winConditionResolved: payload.winConditionResolved,
             gameOver: true
         });
