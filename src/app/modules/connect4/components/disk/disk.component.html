@@ -2,6 +2,7 @@
 <div
     class="disk__item"
     [ngClass]="{
+        'board__disk-item--match-win-condition': isMatchingWinCondition,
         'board__disk-item--filled-by-p1': filledBy === 1,
         'board__disk-item--filled-by-p2': filledBy === 2
     }"

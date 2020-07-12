@@ -1,7 +1,13 @@
 <div class="board__container">
     <mat-grid-list cols="7" [rowHeight]="rowHeight">
         <mat-grid-tile *ngFor="let column of ' '.repeat(nbColumn).split(''); let columnIndex = index">
-            <div class="board__column" (click)="onClickColumn(columnIndex)">
+            <div
+                class="board__column"
+                [ngClass]="{
+                    'board__column--game-over': isGameOver
+                }"
+                (click)="onClickColumn(columnIndex)"
+            >
                 <mat-grid-list cols="1">
                     <mat-grid-tile *ngFor="let row of ' '.repeat(nbRow).split(''); let rowIndex = index">
                         <app-disk

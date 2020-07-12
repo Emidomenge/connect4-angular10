@@ -38,6 +38,13 @@
             background-color: mat-color($accent, lighter, 0.4);
             cursor: pointer;
         }
+
+        &.board__column--game-over {
+            &:hover {
+                background-color: inherit;
+                cursor: auto;
+            }
+        }
     }
 
     .board__disk__container {

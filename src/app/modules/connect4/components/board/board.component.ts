@@ -1,5 +1,4 @@
 import { BreakpointService } from './../../../../shared/services/breakpoint/breakpoint.service';
-import { BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngxs/store';
 
@@ -19,6 +18,7 @@ export class BoardComponent implements OnInit {
     nbRow = connect4.nbRows;
     rowHeight: string;
     i18nTest: string;
+    isGameOver: boolean;
     constructor(
         private store: Store,
         private connect4Service: Connect4Service,
@@ -29,6 +29,9 @@ export class BoardComponent implements OnInit {
     ngOnInit(): void {
         this.rowHeight = connect4.boardHeight.lg;
         this.detectBreakpoint();
+        this.connect4Service.gameStatusSubject.subscribe(({ status }) => {
+            this.isGameOver = status === 'gameOver';
+        });
     }
 
     private detectBreakpoint(): void {

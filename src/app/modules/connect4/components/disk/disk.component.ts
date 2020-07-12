@@ -1,3 +1,5 @@
+import { AppState } from './../../../../ngxs/index';
+import { Store } from '@ngxs/store';
 import { AudioService } from './../../../../shared/audio/audio.service';
 import { Connect4Service } from './../../connect4.service';
 import { PlayerIndex } from './../../../../ngxs/state/connect4.state';
@@ -11,7 +13,8 @@ import { Component, OnInit, Input } from '@angular/core';
 export class DiskComponent implements OnInit {
     @Input() index: number;
     filledBy: PlayerIndex | null;
-    constructor(private connect4Service: Connect4Service, private audioService: AudioService) {}
+    isMatchingWinCondition: boolean;
+    constructor(private connect4Service: Connect4Service, private audioService: AudioService, private store: Store) {}
 
     ngOnInit(): void {
         this.resetDiskState();
@@ -22,12 +25,15 @@ export class DiskComponent implements OnInit {
         this.connect4Service.gameStatusSubject.subscribe(({ status }) => {
             if (status === 'newGame') {
                 this.resetDiskState();
+            } else if (status === 'gameOver') {
+                this.checkIfMatchingWinCondition();
             }
         });
     }
 
     private resetDiskState(): void {
         this.filledBy = null;
+        this.isMatchingWinCondition = false;
     }
 
     private checkIfConcerned(slotFilled: number, playerIndex: PlayerIndex): void {
@@ -35,5 +41,12 @@ export class DiskComponent implements OnInit {
             this.filledBy = playerIndex;
             this.audioService.playAudio('diskAdded', 220);
         }
+    }
+
+    private checkIfMatchingWinCondition(): void {
+        const winConditionResolved = this.store.selectSnapshot<number[]>(
+            (state: AppState) => state.connect4.winConditionResolved
+        );
+        this.isMatchingWinCondition = winConditionResolved.includes(this.index);
     }
 }

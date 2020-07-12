@@ -27,6 +27,12 @@
             animation-fill-mode: forwards;
         }
 
+        &.board__disk-item--match-win-condition {
+            -webkit-box-shadow: inset 0px 0px 5px 6px mat-color($accent, darker, 0.9);
+            -moz-box-shadow: inset 0px 0px 5px 6px mat-color($accent, darker, 0.9);
+            box-shadow: inset 0px 0px 5px 6px mat-color($accent, darker, 0.9);
+        }
+
         @keyframes fall-down {
             0% {
                 opacity: 0;
