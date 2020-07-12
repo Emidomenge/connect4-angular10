@@ -1,7 +1,9 @@
 export const breakpoints = {
-    screen_xs_min: 430,
+    // below screen_sm_min => 'xs' breakpoint.
     screen_sm_min: 576,
+    // below screen_md_min => 'sm' breakpoint.
     screen_md_min: 768,
-    screen_lg_min: 992,
-    screen_xl_min: 1200
+    // below screen_md_min => 'md' breakpoint.
+    screen_lg_min: 992
+    // above screen_md_min => 'md' breakpoint.
 };

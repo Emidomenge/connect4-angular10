@@ -18,6 +18,9 @@
         border-radius: 30px;
         background-color: mat-color($primary, darker);
         @include xs {
+            max-width: 380px;
+        }
+        @include sm {
             width: 420px;
         }
         @include md {
