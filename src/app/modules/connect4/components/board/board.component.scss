@@ -22,9 +22,11 @@
         }
         @include sm {
             width: 420px;
+            max-width: unset;
         }
         @include md {
             width: 560px;
+            max-width: unset;
         }
     }
 

@@ -6,7 +6,7 @@
         mat-icon-button
         [matTooltip]="label.muteSound"
         (click)="muteSound(true)"
-        *ngIf="breakpoint !== 'xs' && (isSoundMuted$ | async) === false"
+        *ngIf="!isPhoneDevice() && (isSoundMuted$ | async) === false"
     >
         <mat-icon>volume_up</mat-icon>
     </button>
@@ -14,16 +14,11 @@
         mat-icon-button
         [matTooltip]="label.unmuteSound"
         (click)="muteSound(false)"
-        *ngIf="breakpoint !== 'xs' && (isSoundMuted$ | async) === true"
+        *ngIf="!isPhoneDevice() && (isSoundMuted$ | async) === true"
     >
         <mat-icon>volume_off</mat-icon>
     </button>
-    <button
-        mat-icon-button
-        [matMenuTriggerFor]="themeMenu"
-        [matTooltip]="label.changeTheme"
-        *ngIf="breakpoint !== 'xs'"
-    >
+    <button mat-icon-button [matMenuTriggerFor]="themeMenu" [matTooltip]="label.changeTheme" *ngIf="!isPhoneDevice()">
         <mat-icon>format_color_fill</mat-icon>
     </button>
     <mat-menu #themeMenu="matMenu">
@@ -34,7 +29,7 @@
         mat-icon-button
         [matMenuTriggerFor]="languageMenu"
         [matTooltip]="label.changeLanguage"
-        *ngIf="breakpoint !== 'xs'"
+        *ngIf="!isPhoneDevice()"
     >
         <mat-icon>translate</mat-icon>
     </button>
@@ -42,7 +37,7 @@
         <a mat-menu-item href="/fr/" i18n="@@app.lgFrench">French</a>
         <a mat-menu-item href="/en/" i18n="@@app.lgEnglish">English</a>
     </mat-menu>
-    <a mat-button href="https://github.com/Emidomenge/connect4-angular10" *ngIf="breakpoint !== 'xs'">
+    <a mat-button href="https://github.com/Emidomenge/connect4-angular10" *ngIf="!isPhoneDevice()">
         <img class="toolbar__github-logo" src="assets/img/github-circle-white-transparent.svg" />
         <span i18n="@@toolbar.viewGithub">Github</span>
     </a>

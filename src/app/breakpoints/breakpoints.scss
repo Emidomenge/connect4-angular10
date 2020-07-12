@@ -1,3 +1,6 @@
+// Ultra small smartphones (iPhone SE)
+$screen-xs-min: 324px;
+
 // Small tablets and large smartphones (landscape view)
 $screen-sm-min: 576px;
 
@@ -7,9 +10,16 @@ $screen-md-min: 768px;
 // Tablets and small desktops
 $screen-lg-min: 992px;
 
+// Mega small devices (iPhone SE)
+@mixin xss {
+    @media (max-width: #{$screen-xs-min}) {
+        @content;
+    }
+}
+
 // Ultra small devices
 @mixin xs {
-    @media (max-width: #{$screen-sm-min}) {
+    @media (min-width: #{$screen-xs-min}) {
         @content;
     }
 }

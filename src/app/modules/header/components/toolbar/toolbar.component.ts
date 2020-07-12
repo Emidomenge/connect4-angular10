@@ -1,3 +1,4 @@
+import { breakpoints } from './../../../../breakpoints/breakpoints';
 import { AppState } from './../../../../ngxs/index';
 import { AppSettingsService } from './../../../../shared/services/appSettings/app-service.service';
 import { BreakpointService } from './../../../../shared/services/breakpoint/breakpoint.service';
@@ -35,6 +36,10 @@ export class ToolbarComponent implements OnInit {
         this.breakpointService.breakpointBS.subscribe((breakpoint) => {
             this.breakpoint = breakpoint;
         });
+    }
+
+    public isPhoneDevice(): boolean {
+        return this.breakpoint === 'xs' || this.breakpoint === 'xxs';
     }
 
     public changeTheme(theme: string): void {
