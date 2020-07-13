@@ -1,8 +1,9 @@
-import { Connect4Service } from './../../connect4.service';
-import { AppState } from './../../../../ngxs/index';
-import { Store } from '@ngxs/store';
-import { PlayerIndex } from './../../../../ngxs/state/connect4.state';
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngxs/store';
+
+import { AppState } from './../../../../ngxs';
+import { PlayerIndex } from './../../../../ngxs/state/connect4.state';
+import { Connect4Service } from './../../connect4.service';
 
 @Component({
     selector: 'app-banner-info',

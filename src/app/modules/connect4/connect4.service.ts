@@ -1,11 +1,12 @@
-import { AudioService } from './../../shared/services/audio/audio.service';
-import { UpdateBoard, SetGameOver, StartNewGame } from './../../ngxs/actions/connect4.actions';
-import { connect4 } from './../../settings/index';
-import { AppState } from './../../ngxs/index';
-import { PlayerIndex, Connect4Board, GameOverInfo } from './../../ngxs/state/connect4.state';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
 import { Store } from '@ngxs/store';
+import { Subject } from 'rxjs';
+
+import { AppState } from './../../ngxs';
+import { SetGameOver, StartNewGame, UpdateBoard } from './../../ngxs/actions/connect4.actions';
+import { Connect4Board, GameOverInfo, PlayerIndex } from './../../ngxs/state/connect4.state';
+import { connect4 } from './../../settings';
+import { AudioService } from './../../shared/services/audio/audio.service';
 
 export type DiskAddedSubject = { slotFilled: number; byPlayerIndex: PlayerIndex };
 export type GameStatusSubject = { status: 'gameOver' | 'newGame' };

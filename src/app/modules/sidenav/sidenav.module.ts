@@ -1,6 +1,7 @@
-import { MaterialModule } from './../material/material.modules';
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+
+import { MaterialModule } from './../material/material.modules';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 
 @NgModule({

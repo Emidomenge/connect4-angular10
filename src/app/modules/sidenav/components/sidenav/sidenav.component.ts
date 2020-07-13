@@ -1,11 +1,12 @@
-import { ThemingService } from './../../../../shared/services/theming/theming.service';
-import { AppSettingsService } from './../../../../shared/services/appSettings/app-service.service';
-import { Observable } from 'rxjs';
-import { AppState } from './../../../../ngxs/index';
-import { SidenavService } from './../../../../shared/services/sidenav/sidenav.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Select } from '@ngxs/store';
+import { Observable } from 'rxjs';
+
+import { AppState } from './../../../../ngxs';
+import { AppSettingsService } from './../../../../shared/services/appSettings/app-service.service';
+import { SidenavService } from './../../../../shared/services/sidenav/sidenav.service';
+import { ThemingService } from './../../../../shared/services/theming/theming.service';
 
 @Component({
     selector: 'app-sidenav',
