@@ -1,9 +1,10 @@
-import { MaterialModule } from './../material/material.modules';
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+
+import { MaterialModule } from './../material/material.modules';
+import { BannerInfoComponent } from './components/banner-info/banner-info.component';
 import { BoardComponent } from './components/board/board.component';
 import { DiskComponent } from './components/disk/disk.component';
-import { BannerInfoComponent } from './components/banner-info/banner-info.component';
 
 @NgModule({
     declarations: [BoardComponent, DiskComponent, BannerInfoComponent],

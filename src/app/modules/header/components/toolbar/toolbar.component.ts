@@ -1,13 +1,13 @@
-import { breakpoints } from './../../../../breakpoints/breakpoints';
-import { AppState } from './../../../../ngxs/index';
+import { Component, OnInit } from '@angular/core';
+import { Select } from '@ngxs/store';
+import { Observable } from 'rxjs';
+import { SupportedBreakpoints } from 'src/app/shared/services/breakpoint/breakpoint.service';
+
+import { AppState } from './../../../../ngxs';
 import { AppSettingsService } from './../../../../shared/services/appSettings/app-service.service';
 import { BreakpointService } from './../../../../shared/services/breakpoint/breakpoint.service';
 import { SidenavService } from './../../../../shared/services/sidenav/sidenav.service';
 import { ThemingService } from './../../../../shared/services/theming/theming.service';
-import { Component, OnInit } from '@angular/core';
-import { SupportedBreakpoints } from 'src/app/shared/services/breakpoint/breakpoint.service';
-import { Select } from '@ngxs/store';
-import { Observable } from 'rxjs';
 
 @Component({
     selector: 'app-toolbar',

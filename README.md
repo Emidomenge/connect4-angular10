@@ -17,6 +17,7 @@ Project created by [Emilien Domenge-Heritier](https://www.domenge.fr/)
 ## Main features
 
 -   Connect 4 game mechanism.
+-   Use NGXS as global state manager
 -   SCSS written with BEM syntax.
 -   Responsive Design. Supports desktop and mobile platform.
 -   Supports multi languages (i18n). French and English actually.

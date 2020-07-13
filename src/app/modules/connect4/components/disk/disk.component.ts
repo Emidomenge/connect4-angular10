@@ -1,9 +1,10 @@
-import { AppState } from './../../../../ngxs/index';
+import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngxs/store';
+
+import { AppState } from './../../../../ngxs';
+import { PlayerIndex } from './../../../../ngxs/state/connect4.state';
 import { AudioService } from './../../../../shared/services/audio/audio.service';
 import { Connect4Service } from './../../connect4.service';
-import { PlayerIndex } from './../../../../ngxs/state/connect4.state';
-import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
     selector: 'app-disk',
